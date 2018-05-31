@@ -26,19 +26,20 @@
                                         <rect key="frame" x="0.0" y="50" width="337.5" height="434"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="UyY-Ny-70a">
-                                                <rect key="frame" x="48" y="0.0" width="242" height="140"/>
+                                                <rect key="frame" x="32" y="0.0" width="274" height="140"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StatiUniti" translatesAutoresizingMaskIntoConstraints="NO" id="N5l-YL-l44">
-                                                        <rect key="frame" x="37" y="0.0" width="168" height="84"/>
+                                                        <rect key="frame" x="53.5" y="0.0" width="168" height="84"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="N5l-YL-l44" secondAttribute="height" multiplier="2:1" id="hSj-N6-kSF"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questa bandiera di che stato è?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wc6-8e-C2U">
-                                                        <rect key="frame" x="0.0" y="87" width="242" height="53"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chi è stato il primo presidente degli Stati Uniti?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wc6-8e-C2U">
+                                                        <rect key="frame" x="0.5" y="87" width="274" height="53"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <size key="shadowOffset" width="0.0" height="1"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
@@ -48,21 +49,21 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C89-mG-ViY">
                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="58"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <state key="normal" title="Italia" backgroundImage="Rettangolo">
+                                                        <state key="normal" title="Risposta A" backgroundImage="Rettangolo">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35q-Rx-EYy">
                                                         <rect key="frame" x="0.0" y="78" width="315" height="58"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <state key="normal" title="Stati Uniti" backgroundImage="Rettangolo">
+                                                        <state key="normal" title="Risposta B" backgroundImage="Rettangolo">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ziy-RT-VUK">
                                                         <rect key="frame" x="0.0" y="156" width="315" height="58"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                        <state key="normal" title="Cile" backgroundImage="Rettangolo">
+                                                        <state key="normal" title="Risposta C" backgroundImage="Rettangolo">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                     </button>
@@ -95,6 +96,10 @@
                     <tabBarItem key="tabBarItem" title="Quiz" image="question-speech-bubble" id="pKM-N0-CD5"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="buttonA" destination="C89-mG-ViY" id="x4l-S6-2oE"/>
+                        <outlet property="buttonB" destination="35q-Rx-EYy" id="ym8-q5-CTb"/>
+                        <outlet property="buttonC" destination="Ziy-RT-VUK" id="lh4-gS-jcV"/>
+                        <outlet property="labelQuiz" destination="Wc6-8e-C2U" id="Qcg-sP-L8l"/>
                         <outlet property="viewBackground" destination="SlJ-mr-ZPF" id="JEE-Bs-urO"/>
                     </connections>
                 </viewController>

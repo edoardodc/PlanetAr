@@ -19,5 +19,28 @@ extension UIView {
                        animations: { [weak self] in self!.transform = .identity
             }, completion: nil)
     }
+    
+    
+    func setupBackgroundColor() {
+        UIView.animate(withDuration: 5, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
+            self.backgroundColor = .black
+        }) { (Bool) -> Void in
+            UIView.animate(withDuration: 5, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
+                self.backgroundColor = UIColor.cyan
+            }, completion: { (Bool) -> Void in
+                UIView.animate(withDuration: 5, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
+                    self.backgroundColor = .yellow
+                }, completion: { (Bool) -> Void in
+                    UIView.animate(withDuration: 5, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
+                        self.backgroundColor = .gray
+                    }, completion: { (Bool) -> Void in
+                        self.setupBackgroundColor()
+                    })
+                })
+            })
+        }
+    }
 }
+    
+    
 
