@@ -17,7 +17,9 @@ class FirstViewController: UIViewController, ARSCNViewDelegate {
     var label :UILabel!
     var imageHand: UIImageView!
     var buttonRadius: UIButton!
+    var buttonDelete: UIButton!
     var radius = 0.2
+    var count = 0
     
     
     override func viewDidLoad() {
@@ -36,6 +38,8 @@ class FirstViewController: UIViewController, ARSCNViewDelegate {
         let image: UIImage = UIImage(named: "HandTouch")!
         imageHand = UIImageView(image: image)
         imageHand.center = self.view.center
+        
+        
         self.view.addSubview(imageHand!)
         
         
@@ -53,29 +57,29 @@ class FirstViewController: UIViewController, ARSCNViewDelegate {
             return
         }
         
+        count += 1
+        
         var translation = matrix_identity_float4x4
         translation.columns.3.z = -0.1
-        
         let geometry = SCNSphere(radius: CGFloat(radius))
         let material = SCNMaterial()
         material.diffuse.contents = UIImage(named: planets[0])
-        
         geometry.materials = [material]
-        
         let node = SCNNode(geometry: geometry)
         node.physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
         node.physicsBody?.mass = 5
         node.physicsBody?.isAffectedByGravity = false
-        
         node.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: CGFloat(2*Double.pi), y: 0, z: 0, duration: 20)))
-        
         node.simdTransform = matrix_multiply(currentFrame.camera.transform, translation)
-        
         let forceVector = SCNVector3(-node.worldFront.x, node.worldFront.y, -node.worldFront.x)
-        
         node.physicsBody?.applyForce(forceVector, asImpulse: true)
-        
         self.sceneView.scene.rootNode.addChildNode(node)
+        
+        if count == 2 {
+            count = 0
+            sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode() }
+        }
         
         imageHand.alpha = 0
     }
@@ -88,6 +92,8 @@ class FirstViewController: UIViewController, ARSCNViewDelegate {
         
         imageHand.animateBounce()
     
+        
+        
         // Run the view's session
         sceneView.session.run(configuration)
     }

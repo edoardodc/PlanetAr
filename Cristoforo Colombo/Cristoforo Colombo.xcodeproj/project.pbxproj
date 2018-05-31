@@ -15,6 +15,7 @@
 		C89033DB20B6F0310089DDD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C89033D920B6F0310089DDD2 /* LaunchScreen.storyboard */; };
 		C89033E320B9EFA10089DDD2 /* earth_texture_map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C89033E220B9EFA10089DDD2 /* earth_texture_map.jpg */; };
 		C89033E520B9F50E0089DDD2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89033E420B9F50E0089DDD2 /* Extensions.swift */; };
+		EBA18B5D20C037CF004BEB95 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA18B5C20C037CF004BEB95 /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C89033DC20B6F0310089DDD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C89033E220B9EFA10089DDD2 /* earth_texture_map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth_texture_map.jpg; sourceTree = "<group>"; };
 		C89033E420B9F50E0089DDD2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		EBA18B5C20C037CF004BEB95 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				C89033CE20B6F02B0089DDD2 /* AppDelegate.swift */,
 				C89033D020B6F02B0089DDD2 /* FirstViewController.swift */,
 				C89033D220B6F02B0089DDD2 /* SecondViewController.swift */,
+				EBA18B5C20C037CF004BEB95 /* ThirdViewController.swift */,
 				C89033D420B6F02B0089DDD2 /* Main.storyboard */,
 				C89033D720B6F0310089DDD2 /* Assets.xcassets */,
 				C89033D920B6F0310089DDD2 /* LaunchScreen.storyboard */,
@@ -147,6 +150,7 @@
 			files = (
 				C89033D320B6F02B0089DDD2 /* SecondViewController.swift in Sources */,
 				C89033CF20B6F02B0089DDD2 /* AppDelegate.swift in Sources */,
+				EBA18B5D20C037CF004BEB95 /* ThirdViewController.swift in Sources */,
 				C89033D120B6F02B0089DDD2 /* FirstViewController.swift in Sources */,
 				C89033E520B9F50E0089DDD2 /* Extensions.swift in Sources */,
 			);
@@ -292,6 +296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G99G8858YN;
 				INFOPLIST_FILE = "Cristoforo Colombo/Info.plist";
@@ -300,8 +305,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.edoardodecal.Cristoforo-Colombo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cesaredecal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -311,6 +317,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G99G8858YN;
 				INFOPLIST_FILE = "Cristoforo Colombo/Info.plist";
@@ -319,8 +326,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.edoardodecal.Cristoforo-Colombo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cesaredecal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

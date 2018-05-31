@@ -9,6 +9,13 @@
 import UIKit
 import MapKit
 
+
+struct cellData {
+    var opened = Bool()
+    var title = String()
+    var sectionData = [String]()
+}
+
 class MapPin: NSObject, MKAnnotation {
     let title: String?
     let locationName: String
@@ -35,13 +42,19 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
     
+    let stati = ["Stati Uniti", "Canada", "Messico", "Argentina", "Cile", "Bolivia", "Perù", "Colombia", "Uruguay", "Brasile", "Cuba"]
+    
+    let imgStati = ["StatiUniti", "Canada", "Messico", "Argentina", "Cile", "Bolivia", "Peru", "Colombia", "Uruguay", "Brasile", "Cuba"]
+    
+    var tableViewData = [cellData]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let initialLocation = CLLocation(latitude: 19.2542, longitude: -99.127)
 
-        let regionRadius: CLLocationDistance = 10000000
+        let regionRadius: CLLocationDistance = 15000000
         func centerMapOnLocation(location: CLLocation) {
             let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                       regionRadius, regionRadius)
@@ -57,19 +70,36 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
                               coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
         mapView.addAnnotation(sanFrancisco)
         
+        tableViewData = [cellData(opened: false, title: "Title 1", sectionData: ["Cell1",                       "Cell2", "Cell3"]), cellData(opened: false, title: "Title 2", sectionData: ["Cell1", "Cell2", "Cell3"])]
+        
+        
     }
+    
+    
+    
+    //////TABLE VIEW DELEGATE - SOURCE DATA////
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return stati.count
     }
     
-    
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyCell
+        let imgName = UIImage(named: String(imgStati[indexPath.row]))
+        cell.labelCell?.text = stati[indexPath.row]
+        cell.imageFlag.image = imgName
         
         return cell
     }
+    
+ 
+    
 
 
 }
 
+class MyCell: UITableViewCell {
+    
+    @IBOutlet weak var imageFlag: UIImageView!
+    @IBOutlet weak var labelCell: UILabel!
+}

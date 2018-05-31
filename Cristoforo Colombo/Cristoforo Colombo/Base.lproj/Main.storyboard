@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,19 +14,93 @@
         <!--Quiz-->
         <scene sceneID="mMR-NG-tWj">
             <objects>
-                <viewController id="Saw-yA-Foo" sceneMemberID="viewController">
+                <viewController id="Saw-yA-Foo" customClass="ThirdViewController" customModule="Cristoforo_Colombo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bPp-zv-FYf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SlJ-mr-ZPF">
+                                <rect key="frame" x="19" y="52" width="337.5" height="534"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="hiq-Gd-Rfr">
+                                        <rect key="frame" x="0.0" y="50" width="337.5" height="434"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="UyY-Ny-70a">
+                                                <rect key="frame" x="48" y="0.0" width="242" height="140"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StatiUniti" translatesAutoresizingMaskIntoConstraints="NO" id="N5l-YL-l44">
+                                                        <rect key="frame" x="37" y="0.0" width="168" height="84"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="N5l-YL-l44" secondAttribute="height" multiplier="2:1" id="hSj-N6-kSF"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questa bandiera di che stato è?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wc6-8e-C2U">
+                                                        <rect key="frame" x="0.0" y="87" width="242" height="53"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jT1-Mg-idB">
+                                                <rect key="frame" x="11.5" y="220" width="315" height="214"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C89-mG-ViY">
+                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="58"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                        <state key="normal" title="Italia" backgroundImage="Rettangolo">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35q-Rx-EYy">
+                                                        <rect key="frame" x="0.0" y="78" width="315" height="58"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                        <state key="normal" title="Stati Uniti" backgroundImage="Rettangolo">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ziy-RT-VUK">
+                                                        <rect key="frame" x="0.0" y="156" width="315" height="58"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                        <state key="normal" title="Cile" backgroundImage="Rettangolo">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="hiq-Gd-Rfr" firstAttribute="leading" secondItem="SlJ-mr-ZPF" secondAttribute="leading" id="6JV-QY-C4q"/>
+                                    <constraint firstAttribute="bottom" secondItem="hiq-Gd-Rfr" secondAttribute="bottom" constant="50" id="8qU-a4-O93"/>
+                                    <constraint firstAttribute="trailing" secondItem="hiq-Gd-Rfr" secondAttribute="trailing" id="BMv-5i-DVA"/>
+                                    <constraint firstItem="hiq-Gd-Rfr" firstAttribute="top" secondItem="SlJ-mr-ZPF" secondAttribute="top" constant="50" id="NHa-Nw-JGi"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="15"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.26996527777777779" green="0.31895616319444442" blue="0.81995985243055558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SlJ-mr-ZPF" firstAttribute="width" secondItem="bPp-zv-FYf" secondAttribute="width" multiplier="0.9" id="HYh-fO-td4"/>
+                            <constraint firstItem="SlJ-mr-ZPF" firstAttribute="centerX" secondItem="vKC-fx-Fl5" secondAttribute="centerX" id="LUn-Mw-USv"/>
+                            <constraint firstItem="SlJ-mr-ZPF" firstAttribute="centerY" secondItem="vKC-fx-Fl5" secondAttribute="centerY" id="OIB-lo-i0C"/>
+                            <constraint firstItem="SlJ-mr-ZPF" firstAttribute="height" secondItem="bPp-zv-FYf" secondAttribute="height" multiplier="0.8" id="vKs-rG-t5F"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vKC-fx-Fl5"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Quiz" image="question-speech-bubble" id="pKM-N0-CD5"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="viewBackground" destination="SlJ-mr-ZPF" id="JEE-Bs-urO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yXn-4i-Qox" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="765"/>
+            <point key="canvasLocation" x="749.60000000000002" y="845.1274362818591"/>
         </scene>
         <!--MondoAR-->
         <scene sceneID="hNz-n2-bh7">
@@ -67,7 +142,7 @@
                                             <constraint firstAttribute="height" constant="174" id="GG7-do-xOv"/>
                                         </constraints>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="UUM-l4-epd">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="UUM-l4-epd" customClass="MyCell" customModule="Cristoforo_Colombo" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UUM-l4-epd" id="Jam-hq-hSh">
@@ -77,14 +152,14 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="C55-WP-sMw">
                                                             <rect key="frame" x="20" y="0.0" width="355" height="99.5"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Stati Uniti" translatesAutoresizingMaskIntoConstraints="NO" id="lol-9G-RVf">
-                                                                    <rect key="frame" x="0.0" y="12.5" width="150" height="75"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StatiUniti" translatesAutoresizingMaskIntoConstraints="NO" id="lol-9G-RVf">
+                                                                    <rect key="frame" x="0.0" y="8.5" width="150" height="82.5"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="lol-9G-RVf" secondAttribute="height" multiplier="2:1" id="Il1-rd-i8x"/>
+                                                                        <constraint firstAttribute="width" secondItem="lol-9G-RVf" secondAttribute="height" multiplier="2:1.1" id="Il1-rd-i8x"/>
                                                                         <constraint firstAttribute="width" constant="150" id="Ubl-jA-TTQ"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New York" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="US4-Py-Isv">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stati Uniti" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="US4-Py-Isv">
                                                                     <rect key="frame" x="150" y="35" width="205" height="30"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                                     <nil key="textColor"/>
@@ -100,6 +175,10 @@
                                                         <constraint firstItem="C55-WP-sMw" firstAttribute="leading" secondItem="Jam-hq-hSh" secondAttribute="leading" constant="20" id="slR-cP-e46"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="imageFlag" destination="lol-9G-RVf" id="LfC-jA-NIc"/>
+                                                    <outlet property="labelCell" destination="US4-Py-Isv" id="A1D-ro-h35"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -150,7 +229,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Stati Uniti" width="160" height="84"/>
+        <image name="Rettangolo" width="315" height="58"/>
+        <image name="StatiUniti" width="160" height="84"/>
         <image name="placeholder-filled-point" width="32" height="32"/>
         <image name="question-speech-bubble" width="32" height="32"/>
         <image name="world-wide-web" width="32" height="32"/>
