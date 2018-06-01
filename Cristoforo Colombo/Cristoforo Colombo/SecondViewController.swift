@@ -44,7 +44,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     let stati = ["Stati Uniti", "Canada", "Messico", "Argentina", "Cile", "Bolivia", "Perù", "Colombia", "Uruguay", "Brasile", "Cuba"]
     
-    let imgStati = ["StatiUniti", "Canada", "Messico", "Argentina", "Cile", "Bolivia", "Peru", "Colombia", "Uruguay", "Brasile", "Cuba"]
+    let imgStati = ["StatiUniti", "Canada", "Messico", "Argentina", "Cile", "Bolivia", "Peru", "Colombia", "Uruguay", "Brasile", "Cuba", "Panama"]
     
     var tableViewData = [cellData]()
     
@@ -64,11 +64,11 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             centerMapOnLocation(location: initialLocation)
         
         
-        let sanFrancisco = MapPin(title: "New York",
+        let statiUniti = MapPin(title: "Edolandia",
                               locationName: "Edoardo de Cal",
-                              discipline: "Cittaa",
-                              coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
-        mapView.addAnnotation(sanFrancisco)
+                              discipline: "citta",
+                              coordinate: CLLocationCoordinate2D(latitude: 41.8500300, longitude: -87.6500500))
+        mapView.addAnnotation(statiUniti)
         
         tableViewData = [cellData(opened: false, title: "Title 1", sectionData: ["Cell1",                       "Cell2", "Cell3"]), cellData(opened: false, title: "Title 2", sectionData: ["Cell1", "Cell2", "Cell3"])]
         
@@ -85,16 +85,12 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyCell
-        let imgName = UIImage(named: String(imgStati[indexPath.row]))
+        let imgName = UIImage(named: imgStati[indexPath.row])
         cell.labelCell?.text = stati[indexPath.row]
         cell.imageFlag.image = imgName
         
         return cell
     }
-    
- 
-    
-
 
 }
 

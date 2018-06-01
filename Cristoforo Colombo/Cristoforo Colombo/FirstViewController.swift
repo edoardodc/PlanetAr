@@ -10,20 +10,18 @@ import UIKit
 import SceneKit
 import ARKit
 
-class FirstViewController: UIViewController, ARSCNViewDelegate {
+class FirstViewController: UIViewContcaroller, ARSCNViewDelegate {
 
-    let planets = ["earth_texture_map.jpg"]
+    let planets = ["earth_texture_map.png"]
     var sceneView: ARSCNView!
-    var label :UILabel!
     var imageHand: UIImageView!
     var buttonRadius: UIButton!
-    var buttonDelete: UIButton!
     var radius = 0.2
     var count = 0
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         self.sceneView = ARSCNView(frame: self.view.frame)
         self.view.addSubview(self.sceneView)
@@ -38,17 +36,10 @@ class FirstViewController: UIViewController, ARSCNViewDelegate {
         let image: UIImage = UIImage(named: "HandTouch")!
         imageHand = UIImageView(image: image)
         imageHand.center = self.view.center
-        
-        
+
+
         self.view.addSubview(imageHand!)
         
-        
-        /*
-        self.label = UILabel(frame: CGRect(x: 0, y: 0, width: self.sceneView.frame.size.width, height: 100))
-        self.label.center = self.sceneView.center
-        self.label.textAlignment = .center
-        label.text = "Tocca lo schermo!"
-        */
     }
     
     @objc func tapped(recognizer: UIGestureRecognizer) {
@@ -69,10 +60,10 @@ class FirstViewController: UIViewController, ARSCNViewDelegate {
         node.physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
         node.physicsBody?.mass = 5
         node.physicsBody?.isAffectedByGravity = false
-        node.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: CGFloat(2*Double.pi), y: 0, z: 0, duration: 20)))
+        //node.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: CGFloat(2*Double.pi), y: 0, z: 0, duration: 20)))
         node.simdTransform = matrix_multiply(currentFrame.camera.transform, translation)
-        let forceVector = SCNVector3(-node.worldFront.x, node.worldFront.y, -node.worldFront.x)
-        node.physicsBody?.applyForce(forceVector, asImpulse: true)
+        //let forceVector = SCNVector3(-node.worldFront.x, node.worldFront.y, -node.worldFront.x)
+        //node.physicsBody?.applyForce(forceVector, asImpulse: true)
         self.sceneView.scene.rootNode.addChildNode(node)
         
         if count == 2 {

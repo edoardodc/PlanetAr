@@ -16,6 +16,7 @@
 		C89033E320B9EFA10089DDD2 /* earth_texture_map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C89033E220B9EFA10089DDD2 /* earth_texture_map.jpg */; };
 		C89033E520B9F50E0089DDD2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89033E420B9F50E0089DDD2 /* Extensions.swift */; };
 		EBA18B5D20C037CF004BEB95 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA18B5C20C037CF004BEB95 /* ThirdViewController.swift */; };
+		EBA18B5F20C15F38004BEB95 /* mondo1.png in Resources */ = {isa = PBXBuildFile; fileRef = EBA18B5E20C15F35004BEB95 /* mondo1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C89033E220B9EFA10089DDD2 /* earth_texture_map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth_texture_map.jpg; sourceTree = "<group>"; };
 		C89033E420B9F50E0089DDD2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EBA18B5C20C037CF004BEB95 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		EBA18B5E20C15F35004BEB95 /* mondo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mondo1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				C89033DC20B6F0310089DDD2 /* Info.plist */,
 				C89033E220B9EFA10089DDD2 /* earth_texture_map.jpg */,
 				C89033E420B9F50E0089DDD2 /* Extensions.swift */,
+				EBA18B5E20C15F35004BEB95 /* mondo1.png */,
 			);
 			path = "Cristoforo Colombo";
 			sourceTree = "<group>";
@@ -136,6 +139,7 @@
 			files = (
 				C89033DB20B6F0310089DDD2 /* LaunchScreen.storyboard in Resources */,
 				C89033E320B9EFA10089DDD2 /* earth_texture_map.jpg in Resources */,
+				EBA18B5F20C15F38004BEB95 /* mondo1.png in Resources */,
 				C89033D820B6F0310089DDD2 /* Assets.xcassets in Resources */,
 				C89033D620B6F02B0089DDD2 /* Main.storyboard in Resources */,
 			);
