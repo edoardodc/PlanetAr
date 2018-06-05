@@ -1,53 +1,114 @@
 //
-//  SecondViewController.swift
-//  Cristoforo Colombo
+//  ViewController.swift
+//  Quizzler
 //
-//  Created by Edoardo de Cal on 24/05/18.
-//  Copyright © 2018 Edoardo de Cal. All rights reserved.
+//  Created by Angela Yu on 25/08/2015.
+//  Copyright (c) 2015 London App Brewery. All rights reserved.
 //
 
 import UIKit
+import SAConfettiView
 
 class ThirdViewController: UIViewController {
     
-    @IBOutlet weak var viewBackground: UIView!
-    @IBOutlet weak var labelQuiz: UILabel!
+    //Place your instance variables here
     
-    @IBOutlet weak var buttonA: UIButton!
-    @IBOutlet weak var buttonB: UIButton!
-    @IBOutlet weak var buttonC: UIButton!
+    var allQuestion = QuestionBank()
+    var answerPressed: Bool = false
+    var questionNumber: Int = 0
+    var score = 0
+    var confettiView: SAConfettiView!
     
-    var count = 0
+    
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var buttonAvanti: UIButton!
+    @IBOutlet weak var buttonVero: UIButton!
+    @IBOutlet weak var buttonFalso: UIButton!
+    @IBOutlet weak var qImage: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        buttonA.setTitle("Risposta A", for: .normal)
-        buttonB.setTitle("Risposta A", for: .normal)
-        buttonC.setTitle("Risposta A", for: .normal)
-    
         view.setupBackgroundColor()
+        scoreLabel.text = "Punteggio: \(score)"
+        progressLabel.text = "Domanda numero \(questionNumber + 1)"
+        questionLabel.text = allQuestion.list[questionNumber].questionText
+        buttonAvanti.isHidden = true
         
-        switch count {
-        case 0:
-            labelQuiz.text = "Chi è stato il primo presidente degli Stati Uniti?"
-            buttonA.setTitle("Obama", for: .normal)
-            buttonB.setTitle("Lincoln", for: .normal)
-            buttonC.setTitle("Trump", for: .normal)
-            
+        self.confettiView = SAConfettiView(frame: self.view.frame)
+        self.confettiView.type = .confetti
+        self.view.addSubview(confettiView)
+        confettiView.isUserInteractionEnabled = false
 
-            
-        break;
-            
-        default:
-            break;
-        }
-        
+    }
     
+    @IBAction func nextButton(_ sender: Any) {
+        buttonAvanti.isHidden = true
+        buttonVero.isHidden = false
+        buttonFalso.isHidden = false
+        nextQuestion()
+    }
+    
+    @IBAction func answerPressed(_ sender: AnyObject) {
+        if sender.tag == 1 {
+            answerPressed = true
+        }else if sender.tag == 2 {
+            answerPressed = false
+        }
+        buttonVero.isHidden = true
+        buttonFalso.isHidden = true
+        buttonAvanti.isHidden = false
+        checkAnswer()
+    }
+    
+    
+    func updateUI() {
+        score += 1
+        scoreLabel.text = "Punteggio: \(score)"
+        progressLabel.animateBounce()
+        buttonAvanti.animateBounce()
+        self.confettiView.startConfetti()
+    }
+    
+    
+    func nextQuestion() {
+        self.confettiView.stopConfetti()
+        if questionNumber < 12 {
+            questionNumber += 1
+            questionLabel.text = allQuestion.list[questionNumber].questionText
+            print("Ciao")
+            print(questionNumber)
+        }else{
+            startOver()
+        }
+    }
+    
+    
+    func checkAnswer() {
+        progressLabel.text = "Domanda numero \(questionNumber + 1)"
+        if answerPressed == allQuestion.list[questionNumber].answer {
+            updateUI()
+            view.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+            ProgressHUD.showSuccess("Risposta giusta!!")
+        }else{
+            view.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            ProgressHUD.showError("Ahia! Risposta sbagliata mi spiace!")
+        }
+    }
+    
+    
+    func startOver() {
+        questionLabel.text = "Quiz is over"
+        questionNumber = 0
+        score = 0
+        progressLabel.text = "\(questionNumber)/13"
+        scoreLabel.text = "\(score)"
+        questionLabel.text = allQuestion.list[questionNumber].questionText
         
     }
     
+    
+    
 }
-
-

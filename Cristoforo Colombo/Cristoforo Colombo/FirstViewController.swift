@@ -10,22 +10,20 @@ import UIKit
 import SceneKit
 import ARKit
 
-class FirstViewController: UIViewContcaroller, ARSCNViewDelegate {
+class FirstViewController: UIViewController, ARSCNViewDelegate {
 
-    let planets = ["earth_texture_map.png"]
-    var sceneView: ARSCNView!
+    let planets = ["earth_texture_map.jpg"]
     var imageHand: UIImageView!
     var buttonRadius: UIButton!
     var radius = 0.2
     var count = 0
+    @IBOutlet weak var sceneView: ARSCNView!
+    @IBOutlet weak var labelSetRadius: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        self.sceneView = ARSCNView(frame: self.view.frame)
-        self.view.addSubview(self.sceneView)
-        sceneView.delegate = self
         sceneView.showsStatistics = false
         
         let scene = SCNScene()
@@ -41,6 +39,11 @@ class FirstViewController: UIViewContcaroller, ARSCNViewDelegate {
         self.view.addSubview(imageHand!)
         
     }
+    
+    
+    
+    
+    
     
     @objc func tapped(recognizer: UIGestureRecognizer) {
         
@@ -60,20 +63,38 @@ class FirstViewController: UIViewContcaroller, ARSCNViewDelegate {
         node.physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
         node.physicsBody?.mass = 5
         node.physicsBody?.isAffectedByGravity = false
-        //node.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: CGFloat(2*Double.pi), y: 0, z: 0, duration: 20)))
+        node.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: -CGFloat(2*Double.pi), z: 0, duration: 20)))
         node.simdTransform = matrix_multiply(currentFrame.camera.transform, translation)
-        //let forceVector = SCNVector3(-node.worldFront.x, node.worldFront.y, -node.worldFront.x)
-        //node.physicsBody?.applyForce(forceVector, asImpulse: true)
+        let forceVector = SCNVector3(node.worldFront.x, node.worldFront.x, node.worldFront.x)
+        node.physicsBody?.applyForce(forceVector, asImpulse: true)
         self.sceneView.scene.rootNode.addChildNode(node)
         
-        if count == 2 {
-            count = 0
-            sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
-            node.removeFromParentNode() }
-        }
         
         imageHand.alpha = 0
     }
+    
+    @IBOutlet weak var buttonUp: UIButton!
+    
+    @IBAction func upRadius(_ sender: Any) {
+        if radius == 0.1 {
+            radius -= 0
+        }else{
+            radius -= 0.1
+            labelSetRadius.text = String("\(radius)m")
+        }
+    }
+    
+    @IBAction func downRadius(_ sender: Any) {
+        radius += 0.1
+        labelSetRadius.text = String("\(radius)m")
+    }
+    
+    
+    @IBAction func eliminaTerra(_ sender: Any) {
+        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode() }
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -81,7 +102,7 @@ class FirstViewController: UIViewContcaroller, ARSCNViewDelegate {
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
         
-        imageHand.animateBounce()
+        imageHand.animateBounceRepeat()
     
         
         

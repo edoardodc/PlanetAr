@@ -42,9 +42,22 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
     
+    var cittaStatiUniti = [MapPin]()
+    var cittaCanada = [MapPin]()
+    var cittaMessico = [MapPin]()
+    var cittaArgentina = [MapPin]()
+    var cittaCile = [MapPin]()
+    var cittaUruguay = [MapPin]()
+    var cittaColombia = [MapPin]()
+    var cittaBrasile = [MapPin]()
+    var cittaCuba = [MapPin]()
+    var cittaBolivia = [MapPin]()
+    
+    
     let stati = ["Stati Uniti", "Canada", "Messico", "Argentina", "Cile", "Bolivia", "Perù", "Colombia", "Uruguay", "Brasile", "Cuba"]
     
-    let imgStati = ["StatiUniti", "Canada", "Messico", "Argentina", "Cile", "Bolivia", "Peru", "Colombia", "Uruguay", "Brasile", "Cuba", "Panama"]
+
+    
     
     var tableViewData = [cellData]()
     
@@ -52,50 +65,90 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let initialLocation = CLLocation(latitude: 19.2542, longitude: -99.127)
+        tableView.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        initialLocation()
+        cellDataSetUp()
+        cittaDati()
 
-        let regionRadius: CLLocationDistance = 15000000
-        func centerMapOnLocation(location: CLLocation) {
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                      regionRadius, regionRadius)
-            mapView.setRegion(coordinateRegion, animated: true)
-        }
-        
-            centerMapOnLocation(location: initialLocation)
-        
-        
-        let statiUniti = MapPin(title: "Edolandia",
-                              locationName: "Edoardo de Cal",
-                              discipline: "citta",
-                              coordinate: CLLocationCoordinate2D(latitude: 41.8500300, longitude: -87.6500500))
-        mapView.addAnnotation(statiUniti)
-        
-        tableViewData = [cellData(opened: false, title: "Title 1", sectionData: ["Cell1",                       "Cell2", "Cell3"]), cellData(opened: false, title: "Title 2", sectionData: ["Cell1", "Cell2", "Cell3"])]
-        
         
     }
     
+    func initialLocation() {
+        let initialLocation = CLLocation(latitude: 19.2542, longitude: -99.127)
+        let regionRadius: CLLocationDistance = 15000000
+        func centerMapOnLocation(location: CLLocation) {
+            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
+            mapView.setRegion(coordinateRegion, animated: true)
+        }
+        centerMapOnLocation(location: initialLocation)
+
+    }
     
+//////TABLE VIEW DELEGATE - SOURCE DATA////
     
-    //////TABLE VIEW DELEGATE - SOURCE DATA////
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return tableViewData.count
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stati.count
+        if tableViewData[section].opened == true {
+            return tableViewData[section].sectionData.count + 1
+        } else {
+            return 1
+        }
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyCell
-        let imgName = UIImage(named: imgStati[indexPath.row])
-        cell.labelCell?.text = stati[indexPath.row]
-        cell.imageFlag.image = imgName
         
-        return cell
+        if indexPath.row == 0 {
+             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyCell
+            cell.labelCell?.text = tableViewData[indexPath.section].title
+            cell.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+            cell.labelCell.textColor = .white
+            let imgName = UIImage(named: tableViewData[indexPath.section].title)
+            cell.imageFlag.image = imgName
+            return cell
+        }else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! MyCell2
+            cell.labelCity?.text = tableViewData[indexPath.section].sectionData[indexPath.row - 1]
+            cell.labelCity.textColor = .white
+            let imgName = UIImage(named: tableViewData[indexPath.section].sectionData[indexPath.row - 1])
+            cell.imageCity.image = imgName
+            cell.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+            return cell
+        }
+}
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableViewData[indexPath.section].opened == true {
+            tableViewData[indexPath.section].opened = false
+            let section = IndexSet.init(integer: indexPath.section)
+            controlRemoveAnnotation(index: indexPath.section)
+            tableView.reloadSections(section, with: .none)
+        }else{
+            tableViewData[indexPath.section].opened = true
+            let section = IndexSet.init(integer: indexPath.section)
+            controlAddAnnotation(index: indexPath.section)
+            tableView.reloadSections(section, with: .none)
+        }
     }
-
+    
+    
+    
 }
 
+
+
+
+
 class MyCell: UITableViewCell {
-    
     @IBOutlet weak var imageFlag: UIImageView!
     @IBOutlet weak var labelCell: UILabel!
+}
+
+class MyCell2: UITableViewCell {
+    @IBOutlet weak var imageCity: UIImageView!
+    @IBOutlet weak var labelCity: UILabel!
 }
