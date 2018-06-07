@@ -68,15 +68,13 @@ class ThirdViewController: UIViewController {
     
     func nextQuestion() {
         self.confettiView.stopConfetti()
-        if questionNumber < 11 {
+        if questionNumber < 10 {
             questionNumber += 1
             questionLabel.text = allQuestion.list[questionNumber].questionText
             qImage.image = UIImage(named: listaImmaginiQuiz[questionNumber])
             print("Ciao")
             print(questionNumber)
-        }
-        
-        if questionNumber == 11 {
+        } else if questionNumber == 10 {
             qImage.isHidden = true
             buttonVero.isHidden = true
             buttonFalso.isHidden = true

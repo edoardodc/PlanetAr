@@ -16,19 +16,27 @@ class QuestionBank {
     
         
         
-        list.append(Question(questionText: "A slug\'s blood is green.", answer: true))
+        list.append(Question(questionText: "I taxi a NewYork City sono verdi", answer: false))
         
-        list.append(Question(questionText: "Approximately one quarter of human bones are in the feet.", answer: true))
+        list.append(Question(questionText: "Il primo presidente degli Stati Uniti è stato Lincoln", answer: false))
         
-        list.append(Question(questionText: "The total surface area of two human lungs is approximately 70 square metres.", answer: true))
+        list.append(Question(questionText: "Questa bandiera è del Perú", answer: true))
         
-        list.append(Question(questionText: "In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.", answer: true))
+        list.append(Question(questionText: "La capitale del Brasile è Rio de Janeiro", answer: false))
         
-        list.append(Question(questionText: "In London, UK, if you happen to die in the House of Parliament, you are technically entitled to a state funeral, because the building is considered too sacred a place.", answer: false))
+        list.append(Question(questionText: "Da Milano a NewYork ci sono 6 ore di differenza", answer: true))
         
+        list.append(Question(questionText: "Obama è stato il presidente del Cile nel 2008", answer: false))
         
+        list.append(Question(questionText: "Il Canada fa parte del Commonwealth", answer: true))
         
+        list.append(Question(questionText: "La capitale del Messico è Città del Messico", answer: true))
         
-    }
+        list.append(Question(questionText: "Il fiume più lungo dell'America è il Nilo", answer: true))
+        
+        list.append(Question(questionText: "La capitale del Canada è Toronto", answer: true))
+        
+        list.append(Question(questionText: "Il Brasile è il più vasto dell'America", answer: true))
+        }
     
 }

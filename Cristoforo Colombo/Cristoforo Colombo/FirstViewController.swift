@@ -16,6 +16,7 @@ class FirstViewController: UIViewController, ARSCNViewDelegate {
     var imageHand: UIImageView!
     var buttonRadius: UIButton!
     var radius = 0.2
+    var touch = 0
     var count: Int = 0 {
         didSet {
             if count == 0 {
@@ -28,6 +29,7 @@ class FirstViewController: UIViewController, ARSCNViewDelegate {
     }
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var labelSetRadius: UILabel!
+    @IBOutlet weak var gifScanner: UIImageView!
     
     @IBOutlet weak var buttonDeleteEarth: UIButton!
     
@@ -45,6 +47,10 @@ class FirstViewController: UIViewController, ARSCNViewDelegate {
         imageHand = UIImageView(image: image)
         imageHand.center = self.view.center
         buttonDeleteEarth.isHidden = true
+        gifScanner.loadGif(name: "scannerizza-lo-spazio")
+        
+        
+        imageHand.alpha = 0
 
         self.view.addSubview(imageHand!)
         
@@ -56,13 +62,32 @@ class FirstViewController: UIViewController, ARSCNViewDelegate {
     
     
     @objc func tapped(recognizer: UIGestureRecognizer) {
+    
         
+        touch += 1
+        
+        switch touch {
+        case 1:
+            imageHand.alpha = 1
+            gifScanner.isHidden = true
+            break
+        case 2:
+            imageHand.alpha = 0
+            createWorld()
+            break
+        default:
+            createWorld()
+            break
+        }
+        
+    
+    }
+    
+    func createWorld() {
         guard let currentFrame = self.sceneView.session.currentFrame else {
             return
         }
-        
         count += 1
-        
         var translation = matrix_identity_float4x4
         translation.columns.3.z = -0.1
         let geometry = SCNSphere(radius: CGFloat(radius))
@@ -80,7 +105,7 @@ class FirstViewController: UIViewController, ARSCNViewDelegate {
         self.sceneView.scene.rootNode.addChildNode(node)
         
         
-        imageHand.alpha = 0
+        
     }
     
     @IBOutlet weak var buttonUp: UIButton!

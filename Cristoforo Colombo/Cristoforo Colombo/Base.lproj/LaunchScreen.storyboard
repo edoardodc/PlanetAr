@@ -41,6 +41,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="earth" width="720" height="720"/>
+        <image name="earth" width="300" height="300"/>
     </resources>
 </document>

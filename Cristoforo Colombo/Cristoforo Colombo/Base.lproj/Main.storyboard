@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OBp-PT-HNn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -83,18 +83,27 @@
                                     <action selector="eliminaTerra:" destination="9pv-A4-QxB" eventType="touchUpInside" id="jJf-Zu-iXE"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wgA-e9-qiY">
+                                <rect key="frame" x="56.5" y="188.5" width="262.5" height="262.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wgA-e9-qiY" secondAttribute="height" multiplier="1:1" id="MCu-jp-Vei"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wgA-e9-qiY" firstAttribute="width" secondItem="jTT-gc-LQC" secondAttribute="width" multiplier="0.7" id="Eos-Ai-yqS"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="uvQ-Hj-YCY" secondAttribute="trailing" id="G3R-CX-yg9"/>
                             <constraint firstItem="uvQ-Hj-YCY" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="PYf-zU-GAe"/>
                             <constraint firstItem="jTT-gc-LQC" firstAttribute="height" secondItem="tsR-hK-woN" secondAttribute="height" multiplier="0.07" id="QoR-dM-tIf"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="uvQ-Hj-YCY" secondAttribute="bottom" id="aS2-4l-OdX"/>
                             <constraint firstItem="jTT-gc-LQC" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="fge-YB-3zp"/>
                             <constraint firstItem="jTT-gc-LQC" firstAttribute="top" secondItem="Uwi-bq-ZnL" secondAttribute="bottom" constant="8" id="h9i-6j-5FI"/>
+                            <constraint firstItem="wgA-e9-qiY" firstAttribute="centerY" secondItem="PQr-Ze-W5v" secondAttribute="centerY" id="imA-OH-uaY"/>
                             <constraint firstItem="uvQ-Hj-YCY" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="-20" id="jYd-ja-C3L"/>
                             <constraint firstItem="jTT-gc-LQC" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="qgf-2z-33v"/>
                             <constraint firstItem="jTT-gc-LQC" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="vZ5-qh-2DV"/>
+                            <constraint firstItem="wgA-e9-qiY" firstAttribute="centerX" secondItem="PQr-Ze-W5v" secondAttribute="centerX" id="wsN-M6-5m8"/>
                             <constraint firstItem="Uwi-bq-ZnL" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="9" id="zoM-fN-LV2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
@@ -106,6 +115,7 @@
                     <connections>
                         <outlet property="buttonDeleteEarth" destination="Uwi-bq-ZnL" id="zcp-oL-xwg"/>
                         <outlet property="buttonUp" destination="38e-pG-Xhq" id="yJu-BM-Rz7"/>
+                        <outlet property="gifScanner" destination="wgA-e9-qiY" id="mcq-xc-4PT"/>
                         <outlet property="labelSetRadius" destination="wgZ-Sd-jDv" id="Hyw-P2-4pA"/>
                         <outlet property="sceneView" destination="uvQ-Hj-YCY" id="fhb-57-CJi"/>
                     </connections>
@@ -244,6 +254,72 @@
             </objects>
             <point key="canvasLocation" x="-2.3999999999999999" y="769.56521739130437"/>
         </scene>
+        <!--Video Controller-->
+        <scene sceneID="bef-zk-J0Z">
+            <objects>
+                <viewController id="OBp-PT-HNn" customClass="VideoController" customModule="Cristoforo_Colombo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pgQ-pb-CU2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="U7e-s7-pBd">
+                                <rect key="frame" x="0.0" y="70" width="375" height="547"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gz2-tF-P2i">
+                                        <rect key="frame" x="37.5" y="0.0" width="300" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="gz2-tF-P2i" secondAttribute="height" multiplier="5:1" id="2pW-Dg-Co7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="23"/>
+                                        <state key="normal" title="Guarda anteprima video!" backgroundImage="rett1">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playVideo:" destination="OBp-PT-HNn" eventType="touchUpInside" id="4Y1-qy-Muv"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="earth" translatesAutoresizingMaskIntoConstraints="NO" id="jJe-g6-b2q">
+                                        <rect key="frame" x="112.5" y="198.5" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="jJe-g6-b2q" secondAttribute="height" multiplier="1:1" id="cwl-cQ-jOk"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iJ-gX-3Zu">
+                                        <rect key="frame" x="37.5" y="487" width="300" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="9iJ-gX-3Zu" secondAttribute="height" multiplier="5:1" id="hJf-eJ-fY2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
+                                        <state key="normal" title="Entra in PlanetAr!" backgroundImage="rett2">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="49e-Tb-3d3" kind="show" id="JSX-i1-IaD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gz2-tF-P2i" firstAttribute="width" secondItem="pgQ-pb-CU2" secondAttribute="width" multiplier="0.8" id="2bh-fz-KTH"/>
+                            <constraint firstItem="U7e-s7-pBd" firstAttribute="leading" secondItem="9wg-BZ-BoV" secondAttribute="leading" id="2kI-7k-250"/>
+                            <constraint firstItem="jJe-g6-b2q" firstAttribute="width" secondItem="pgQ-pb-CU2" secondAttribute="width" multiplier="0.4" id="M6b-qf-mW2"/>
+                            <constraint firstItem="U7e-s7-pBd" firstAttribute="top" secondItem="9wg-BZ-BoV" secondAttribute="top" constant="50" id="UdZ-3b-07X"/>
+                            <constraint firstItem="9wg-BZ-BoV" firstAttribute="bottom" secondItem="U7e-s7-pBd" secondAttribute="bottom" constant="50" id="bUQ-LA-9Jx"/>
+                            <constraint firstItem="9wg-BZ-BoV" firstAttribute="trailing" secondItem="U7e-s7-pBd" secondAttribute="trailing" id="nfw-Ba-C97"/>
+                            <constraint firstItem="9iJ-gX-3Zu" firstAttribute="width" secondItem="pgQ-pb-CU2" secondAttribute="width" multiplier="0.8" id="tmu-Pb-PCU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9wg-BZ-BoV"/>
+                    </view>
+                    <connections>
+                        <outlet property="guardaAnteprima" destination="gz2-tF-P2i" id="xey-n5-9Qb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Im9-cb-PWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1132" y="0.0"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -279,13 +355,13 @@
                                 <rect key="frame" x="19" y="58" width="338" height="300"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SmN-5s-8l3">
-                                        <rect key="frame" x="15" y="15" width="308" height="280"/>
+                                        <rect key="frame" x="15" y="12" width="308" height="283"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="flR-Yy-dZ5">
-                                                <rect key="frame" x="41.5" y="0.0" width="225" height="256"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="flR-Yy-dZ5">
+                                                <rect key="frame" x="41.5" y="0.0" width="225" height="259"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="K0r-c2-FSL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="181"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="K0r-c2-FSL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="171"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Domanda numero" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWs-1L-7sD">
                                                                 <rect key="frame" x="31.5" y="0.0" width="162" height="17"/>
@@ -297,7 +373,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewYork City" translatesAutoresizingMaskIntoConstraints="NO" id="Cn3-Ad-Bmo">
-                                                                <rect key="frame" x="0.0" y="57" width="225" height="124"/>
+                                                                <rect key="frame" x="0.0" y="47" width="225" height="124"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="Cn3-Ad-Bmo" secondAttribute="height" multiplier="2:1.1" id="xsM-hL-BaW"/>
                                                                 </constraints>
@@ -310,7 +386,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ife-y4-Bs6">
-                                                        <rect key="frame" x="86" y="161" width="53.5" height="95"/>
+                                                        <rect key="frame" x="86" y="171" width="53.5" height="88"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -318,7 +394,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUl-Pd-hU7">
-                                                <rect key="frame" x="133.5" y="256" width="41.5" height="24"/>
+                                                <rect key="frame" x="133.5" y="259" width="41.5" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="tUW-1x-22O"/>
                                                 </constraints>
@@ -331,7 +407,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="SmN-5s-8l3" firstAttribute="top" secondItem="IQw-VZ-mXd" secondAttribute="top" constant="15" id="0PQ-Vf-z7a"/>
+                                    <constraint firstItem="SmN-5s-8l3" firstAttribute="top" secondItem="IQw-VZ-mXd" secondAttribute="top" constant="12" id="0PQ-Vf-z7a"/>
                                     <constraint firstItem="SmN-5s-8l3" firstAttribute="leading" secondItem="IQw-VZ-mXd" secondAttribute="leading" constant="15" id="D1r-jX-YF1"/>
                                     <constraint firstAttribute="trailing" secondItem="SmN-5s-8l3" secondAttribute="trailing" constant="15" id="Nx2-BH-wV6"/>
                                     <constraint firstAttribute="bottom" secondItem="SmN-5s-8l3" secondAttribute="bottom" constant="5" id="UmM-GR-Qvw"/>
@@ -423,10 +499,13 @@
         <image name="BottoneFalso" width="1065" height="234"/>
         <image name="BottoneVero" width="1065" height="234"/>
         <image name="DeleteWorld" width="300" height="300"/>
-        <image name="NewYork City" width="448" height="298"/>
+        <image name="NewYork City" width="640" height="426"/>
         <image name="Uruguay" width="1600" height="1067"/>
+        <image name="earth" width="300" height="300"/>
         <image name="placeholder-filled-point" width="32" height="32"/>
         <image name="question-speech-bubble" width="32" height="32"/>
+        <image name="rett1" width="771" height="165"/>
+        <image name="rett2" width="771" height="165"/>
         <image name="world-wide-web" width="32" height="32"/>
     </resources>
 </document>
