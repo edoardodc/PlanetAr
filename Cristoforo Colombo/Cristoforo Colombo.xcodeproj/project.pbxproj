@@ -12,15 +12,15 @@
 		C89033D120B6F02B0089DDD2 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89033D020B6F02B0089DDD2 /* FirstViewController.swift */; };
 		C89033D320B6F02B0089DDD2 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89033D220B6F02B0089DDD2 /* SecondViewController.swift */; };
 		C89033D620B6F02B0089DDD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C89033D420B6F02B0089DDD2 /* Main.storyboard */; };
-		C89033D820B6F0310089DDD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C89033D720B6F0310089DDD2 /* Assets.xcassets */; };
 		C89033DB20B6F0310089DDD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C89033D920B6F0310089DDD2 /* LaunchScreen.storyboard */; };
 		C89033E320B9EFA10089DDD2 /* earth_texture_map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C89033E220B9EFA10089DDD2 /* earth_texture_map.jpg */; };
 		C89033E520B9F50E0089DDD2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89033E420B9F50E0089DDD2 /* Extensions.swift */; };
 		EBA18B5D20C037CF004BEB95 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA18B5C20C037CF004BEB95 /* ThirdViewController.swift */; };
-		EBA18B8720C5E820004BEB95 /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA18B8620C5E81F004BEB95 /* QuestionBank.swift */; };
-		EBA18B8920C5E827004BEB95 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA18B8820C5E827004BEB95 /* Question.swift */; };
 		EBA18B9220C6C1CB004BEB95 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = EBA18B9120C6C1CA004BEB95 /* cities.json */; };
-		EBA18B9920C6C450004BEB95 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA18B9520C6C21A004BEB95 /* ProgressHUD.m */; };
+		EBA18BAB20C81652004BEB95 /* MapPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA18BAA20C81652004BEB95 /* MapPinView.swift */; };
+		EBA18BB520C982D3004BEB95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBA18BB420C982D2004BEB95 /* Assets.xcassets */; };
+		EBA18BB720C9855C004BEB95 /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA18BB620C9855C004BEB95 /* QuestionBank.swift */; };
+		EBA18BB920C985E0004BEB95 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA18BB820C985DF004BEB95 /* Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,21 +31,17 @@
 		C89033D020B6F02B0089DDD2 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		C89033D220B6F02B0089DDD2 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		C89033D520B6F02B0089DDD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C89033D720B6F0310089DDD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C89033DA20B6F0310089DDD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C89033DC20B6F0310089DDD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C89033E220B9EFA10089DDD2 /* earth_texture_map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth_texture_map.jpg; sourceTree = "<group>"; };
 		C89033E420B9F50E0089DDD2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D62689CAB0B240B9B5975E71 /* Pods-Cristoforo Colombo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cristoforo Colombo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cristoforo Colombo/Pods-Cristoforo Colombo.debug.xcconfig"; sourceTree = "<group>"; };
 		EBA18B5C20C037CF004BEB95 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		EBA18B8620C5E81F004BEB95 /* QuestionBank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionBank.swift; path = ../../../../../.Trash/QuestionBank.swift; sourceTree = "<group>"; };
-		EBA18B8820C5E827004BEB95 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Question.swift; path = ../../../../../.Trash/Question.swift; sourceTree = "<group>"; };
-		EBA18B8B20C5E83D004BEB95 /* Cristoforo Colombo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cristoforo Colombo-Bridging-Header.h"; sourceTree = "<group>"; };
 		EBA18B9120C6C1CA004BEB95 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = cities.json; path = ../../../../../Downloads/cities.json; sourceTree = "<group>"; };
-		EBA18B9520C6C21A004BEB95 /* ProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
-		EBA18B9620C6C21A004BEB95 /* ProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
-		EBA18B9720C6C21A004BEB95 /* Quizzler-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Quizzler-Bridging-Header.h"; sourceTree = "<group>"; };
-		EBA18B9820C6C21B004BEB95 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		EBA18BAA20C81652004BEB95 /* MapPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinView.swift; sourceTree = "<group>"; };
+		EBA18BB420C982D2004BEB95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../../Downloads/Repo-Cristoforo-Colombo-master/Cristoforo Colombo/Cristoforo Colombo/Assets.xcassets"; sourceTree = "<group>"; };
+		EBA18BB620C9855C004BEB95 /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
+		EBA18BB820C985DF004BEB95 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,17 +92,13 @@
 				C89033D220B6F02B0089DDD2 /* SecondViewController.swift */,
 				EBA18B5C20C037CF004BEB95 /* ThirdViewController.swift */,
 				C89033E420B9F50E0089DDD2 /* Extensions.swift */,
+				EBA18BAA20C81652004BEB95 /* MapPinView.swift */,
+				EBA18BB420C982D2004BEB95 /* Assets.xcassets */,
 				C89033DC20B6F0310089DDD2 /* Info.plist */,
 				EBA18B9120C6C1CA004BEB95 /* cities.json */,
-				EBA18B8620C5E81F004BEB95 /* QuestionBank.swift */,
-				EBA18B8820C5E827004BEB95 /* Question.swift */,
 				C89033E220B9EFA10089DDD2 /* earth_texture_map.jpg */,
-				C89033D720B6F0310089DDD2 /* Assets.xcassets */,
-				EBA18B9720C6C21A004BEB95 /* Quizzler-Bridging-Header.h */,
-				EBA18B9820C6C21B004BEB95 /* ProgressHUD.bundle */,
-				EBA18B9620C6C21A004BEB95 /* ProgressHUD.h */,
-				EBA18B9520C6C21A004BEB95 /* ProgressHUD.m */,
-				EBA18B8B20C5E83D004BEB95 /* Cristoforo Colombo-Bridging-Header.h */,
+				EBA18BB620C9855C004BEB95 /* QuestionBank.swift */,
+				EBA18BB820C985DF004BEB95 /* Question.swift */,
 			);
 			path = "Cristoforo Colombo";
 			sourceTree = "<group>";
@@ -184,8 +176,8 @@
 				EBA18B9220C6C1CB004BEB95 /* cities.json in Resources */,
 				C89033DB20B6F0310089DDD2 /* LaunchScreen.storyboard in Resources */,
 				C89033E320B9EFA10089DDD2 /* earth_texture_map.jpg in Resources */,
-				C89033D820B6F0310089DDD2 /* Assets.xcassets in Resources */,
 				C89033D620B6F02B0089DDD2 /* Main.storyboard in Resources */,
+				EBA18BB520C982D3004BEB95 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,9 +232,9 @@
 				EBA18B5D20C037CF004BEB95 /* ThirdViewController.swift in Sources */,
 				C89033D120B6F02B0089DDD2 /* FirstViewController.swift in Sources */,
 				C89033E520B9F50E0089DDD2 /* Extensions.swift in Sources */,
-				EBA18B8920C5E827004BEB95 /* Question.swift in Sources */,
-				EBA18B9920C6C450004BEB95 /* ProgressHUD.m in Sources */,
-				EBA18B8720C5E820004BEB95 /* QuestionBank.swift in Sources */,
+				EBA18BB920C985E0004BEB95 /* Question.swift in Sources */,
+				EBA18BB720C9855C004BEB95 /* QuestionBank.swift in Sources */,
+				EBA18BAB20C81652004BEB95 /* MapPinView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,7 +392,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cesaredecal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Cristoforo Colombo/Cristoforo Colombo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -425,7 +417,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cesaredecal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Cristoforo Colombo/Cristoforo Colombo-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

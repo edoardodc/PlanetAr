@@ -10,6 +10,16 @@ import UIKit
 import MapKit
 
 extension UIView {
+
+        func shake() {
+            let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+            animation.duration = 0.6
+            animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+            layer.add(animation, forKey: "shake")
+        }
+    
+    
     func animateBounceRepeat() {
         self.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         UIView.animate(withDuration: 2.0,
@@ -34,17 +44,17 @@ extension UIView {
     
     
     func setupBackgroundColor() {
-        UIView.animate(withDuration: 5, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
+        UIView.animate(withDuration: 8, delay: 2, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
             self.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         }) { (Bool) -> Void in
-            UIView.animate(withDuration: 5, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
+            UIView.animate(withDuration: 8, delay: 2, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
                 self.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
             }, completion: { (Bool) -> Void in
-                UIView.animate(withDuration: 5, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
+                UIView.animate(withDuration: 8, delay: 2, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
                     self.backgroundColor = #colorLiteral(red: 0.4513868093, green: 0.9930960536, blue: 1, alpha: 1)
                 }, completion: { (Bool) -> Void in
-                    UIView.animate(withDuration: 5, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
-                        self.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+                    UIView.animate(withDuration: 8, delay: 2, options: UIViewAnimationOptions.allowUserInteraction, animations: { () -> Void in
+                        self.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
                     }, completion: { (Bool) -> Void in
                         self.setupBackgroundColor()
                     })
@@ -104,7 +114,7 @@ extension SecondViewController {
         
         
         cittaColombia = [MapPin(title: "Bogotà", locationName: "Colombia", discipline: "Colombia", coordinate: CLLocationCoordinate2D(latitude: 4.710989, longitude: -74.072092))]
-
+        
     }
     
     func cellDataSetUp() {
@@ -112,7 +122,7 @@ extension SecondViewController {
             
             cellData(opened: false, title: "Stati Uniti", sectionData: ["NewYork City", "Los Angeles", "Washington", "Miami", "Chicago", "Dallas", "San Jose"]),
             cellData(opened: false, title: "Canada", sectionData: ["Ottawa", "Toronto", "Vancouver"]),
-            cellData(opened: false, title: "Messico", sectionData: ["Cittá del Capo"]),
+            cellData(opened: false, title: "Messico", sectionData: ["Cittá del Messico"]),
             cellData(opened: false, title: "Cile", sectionData: ["Santiago del Cile"]),
             cellData(opened: false, title: "Argentina", sectionData: ["Buenos Aires"]),
             cellData(opened: false, title: "Brasile", sectionData: ["Brasilia", "Rio de Janeiro"]),

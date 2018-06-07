@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-
+import CoreLocation
 
 struct cellData {
     var opened = Bool()
@@ -34,10 +34,30 @@ class MapPin: NSObject, MKAnnotation {
     var subtitle: String? {
         return locationName
     }
+    
+    var markerTintColor: UIColor  {
+        switch discipline {
+        case "Colombia":
+            return .green
+        case "StatiUniti":
+            return .red
+        case "Cile":
+            return .cyan
+        case "Canada":
+            return .purple
+        case "Brasile":
+            return .purple
+        case "Cuba":
+            return .gray
+        default:
+            return .green
+        }
+    }
+    
 }
 
 
-class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
@@ -52,26 +72,38 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var cittaBrasile = [MapPin]()
     var cittaCuba = [MapPin]()
     var cittaBolivia = [MapPin]()
-    
-    
-    let stati = ["Stati Uniti", "Canada", "Messico", "Argentina", "Cile", "Bolivia", "Perù", "Colombia", "Uruguay", "Brasile", "Cuba"]
-    
-
-    
-    
+    let locationManager = CLLocationManager()
     var tableViewData = [cellData]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        tableView.backgroundColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
         initialLocation()
         cellDataSetUp()
         cittaDati()
+        mapView.register(ArtworkMarkerView.self,
+                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
 
-        
     }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let location = locations[0]
+        
+        let center = location.coordinate
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: center, span: span)
+        
+        mapView.setRegion(region, animated: true)
+        mapView.showsUserLocation = true
+    }
+    
+    
     
     func initialLocation() {
         let initialLocation = CLLocation(latitude: 19.2542, longitude: -99.127)
@@ -104,8 +136,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if indexPath.row == 0 {
              let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyCell
             cell.labelCell?.text = tableViewData[indexPath.section].title
-            cell.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
-            cell.labelCell.textColor = .white
+            cell.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            cell.labelCell.textColor = .black
             let imgName = UIImage(named: tableViewData[indexPath.section].title)
             cell.imageFlag.image = imgName
             return cell
@@ -115,7 +147,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.labelCity.textColor = .white
             let imgName = UIImage(named: tableViewData[indexPath.section].sectionData[indexPath.row - 1])
             cell.imageCity.image = imgName
-            cell.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+            cell.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
             return cell
         }
 }

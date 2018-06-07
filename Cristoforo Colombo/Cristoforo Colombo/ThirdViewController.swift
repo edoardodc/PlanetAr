@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  Quizzler
-//
-//  Created by Angela Yu on 25/08/2015.
-//  Copyright (c) 2015 London App Brewery. All rights reserved.
-//
-
 import UIKit
 import SAConfettiView
 
@@ -18,7 +10,7 @@ class ThirdViewController: UIViewController {
     var questionNumber: Int = 0
     var score = 0
     var confettiView: SAConfettiView!
-    
+    var listaImmaginiQuiz = ["NewYork City", "Lincoln", "Peru", "Rio de Janeiro", "Orario", "Obama", "Commowealth", "Cittá del Messico", "Nilo", "Toronto", "Brasile", ""]
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -26,13 +18,14 @@ class ThirdViewController: UIViewController {
     @IBOutlet weak var buttonAvanti: UIButton!
     @IBOutlet weak var buttonVero: UIButton!
     @IBOutlet weak var buttonFalso: UIButton!
+    @IBOutlet weak var quizView: UIView!
     @IBOutlet weak var qImage: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.setupBackgroundColor()
-        scoreLabel.text = "Punteggio: \(score)"
+        scoreLabel.text = "Punti: \(score)"
         progressLabel.text = "Domanda numero \(questionNumber + 1)"
         questionLabel.text = allQuestion.list[questionNumber].questionText
         buttonAvanti.isHidden = true
@@ -66,7 +59,7 @@ class ThirdViewController: UIViewController {
     
     func updateUI() {
         score += 1
-        scoreLabel.text = "Punteggio: \(score)"
+        scoreLabel.text = "Punti: \(score)"
         progressLabel.animateBounce()
         buttonAvanti.animateBounce()
         self.confettiView.startConfetti()
@@ -75,13 +68,21 @@ class ThirdViewController: UIViewController {
     
     func nextQuestion() {
         self.confettiView.stopConfetti()
-        if questionNumber < 12 {
+        if questionNumber < 11 {
             questionNumber += 1
             questionLabel.text = allQuestion.list[questionNumber].questionText
+            qImage.image = UIImage(named: listaImmaginiQuiz[questionNumber])
             print("Ciao")
             print(questionNumber)
-        }else{
-            startOver()
+        }
+        
+        if questionNumber == 11 {
+            qImage.isHidden = true
+            buttonVero.isHidden = true
+            buttonFalso.isHidden = true
+
+            questionLabel.text = "Complimenti hai completato il test! hai fatto \(score) punti!!"
+            scoreLabel.animateBounceRepeat()
         }
     }
     
@@ -91,10 +92,15 @@ class ThirdViewController: UIViewController {
         if answerPressed == allQuestion.list[questionNumber].answer {
             updateUI()
             view.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
-            ProgressHUD.showSuccess("Risposta giusta!!")
+            scoreLabel.animateBounce()
+            progressLabel.animateBounce()
+            qImage.animateBounce()
         }else{
-            view.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-            ProgressHUD.showError("Ahia! Risposta sbagliata mi spiace!")
+            quizView.shake()
+            scoreLabel.shake()
+            qImage.shake()
+            progressLabel.shake()
+            questionLabel.shake()
         }
     }
     

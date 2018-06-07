@@ -16,16 +16,26 @@ class FirstViewController: UIViewController, ARSCNViewDelegate {
     var imageHand: UIImageView!
     var buttonRadius: UIButton!
     var radius = 0.2
-    var count = 0
+    var count: Int = 0 {
+        didSet {
+            if count == 0 {
+                imageHand.alpha = 0
+                buttonDeleteEarth.isHidden = true
+            }else{
+                buttonDeleteEarth.isHidden = false
+            }
+        }
+    }
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var labelSetRadius: UILabel!
+    
+    @IBOutlet weak var buttonDeleteEarth: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         sceneView.showsStatistics = false
-        
         let scene = SCNScene()
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
@@ -34,7 +44,7 @@ class FirstViewController: UIViewController, ARSCNViewDelegate {
         let image: UIImage = UIImage(named: "HandTouch")!
         imageHand = UIImageView(image: image)
         imageHand.center = self.view.center
-
+        buttonDeleteEarth.isHidden = true
 
         self.view.addSubview(imageHand!)
         
@@ -63,7 +73,7 @@ class FirstViewController: UIViewController, ARSCNViewDelegate {
         node.physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
         node.physicsBody?.mass = 5
         node.physicsBody?.isAffectedByGravity = false
-        node.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: -CGFloat(2*Double.pi), z: 0, duration: 20)))
+        node.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: -CGFloat(2*Double.pi), z: 0, duration: 40)))
         node.simdTransform = matrix_multiply(currentFrame.camera.transform, translation)
         let forceVector = SCNVector3(node.worldFront.x, node.worldFront.x, node.worldFront.x)
         node.physicsBody?.applyForce(forceVector, asImpulse: true)
@@ -93,6 +103,7 @@ class FirstViewController: UIViewController, ARSCNViewDelegate {
     @IBAction func eliminaTerra(_ sender: Any) {
         sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
             node.removeFromParentNode() }
+        count = 0
     }
     
     
