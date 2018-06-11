@@ -24,7 +24,7 @@
 		EBA18BBB20C99F73004BEB95 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA18BBA20C99F71004BEB95 /* UIImage+Gif.swift */; };
 		EBA18BC020C9D95F004BEB95 /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA18BBF20C9D95E004BEB95 /* VideoController.swift */; };
 		EBB1558120C9DC4900514B81 /* scannerizza-lo-spazio.gif in Resources */ = {isa = PBXBuildFile; fileRef = EBB1558020C9DC4800514B81 /* scannerizza-lo-spazio.gif */; };
-		EBB1558E20C9E83900514B81 /* VideoLapi.mov in Resources */ = {isa = PBXBuildFile; fileRef = EBB1558D20C9E83900514B81 /* VideoLapi.mov */; };
+		EBB1559020C9EF2800514B81 /* VideoLapi.mov in Resources */ = {isa = PBXBuildFile; fileRef = EBB1558F20C9EF2800514B81 /* VideoLapi.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +49,7 @@
 		EBA18BBA20C99F71004BEB95 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Gif.swift"; path = "../../../../../Downloads/Swift-4-Xcode-9---How-To-Display-GIF-in-UIImage-with-One-Line-Of-Code-in-iOS-Latest-2017-Hindi.-master/UIImage+Gif.swift"; sourceTree = "<group>"; };
 		EBA18BBF20C9D95E004BEB95 /* VideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
 		EBB1558020C9DC4800514B81 /* scannerizza-lo-spazio.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "scannerizza-lo-spazio.gif"; path = "../../../../../../../Volumes/NO NAME/scannerizza-lo-spazio.gif"; sourceTree = "<group>"; };
-		EBB1558D20C9E83900514B81 /* VideoLapi.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = VideoLapi.mov; path = ../../../../../Desktop/VideoLapi.mov; sourceTree = "<group>"; };
+		EBB1558F20C9EF2800514B81 /* VideoLapi.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = VideoLapi.mov; path = ../../../../../Desktop/VideoLapi.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +110,7 @@
 				EBA18BB620C9855C004BEB95 /* QuestionBank.swift */,
 				EBA18BB820C985DF004BEB95 /* Question.swift */,
 				EBA18BBF20C9D95E004BEB95 /* VideoController.swift */,
-				EBB1558D20C9E83900514B81 /* VideoLapi.mov */,
+				EBB1558F20C9EF2800514B81 /* VideoLapi.mov */,
 			);
 			path = "Cristoforo Colombo";
 			sourceTree = "<group>";
@@ -188,7 +188,7 @@
 				EBA18B9220C6C1CB004BEB95 /* cities.json in Resources */,
 				C89033DB20B6F0310089DDD2 /* LaunchScreen.storyboard in Resources */,
 				C89033E320B9EFA10089DDD2 /* earth_texture_map.jpg in Resources */,
-				EBB1558E20C9E83900514B81 /* VideoLapi.mov in Resources */,
+				EBB1559020C9EF2800514B81 /* VideoLapi.mov in Resources */,
 				C89033D620B6F02B0089DDD2 /* Main.storyboard in Resources */,
 				EBB1558120C9DC4900514B81 /* scannerizza-lo-spazio.gif in Resources */,
 				EBA18BB520C982D3004BEB95 /* Assets.xcassets in Resources */,
